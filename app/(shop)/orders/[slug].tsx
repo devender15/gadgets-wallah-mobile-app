@@ -1,6 +1,6 @@
 import { Redirect, Stack, useLocalSearchParams } from "expo-router";
-import { FlatList, StyleSheet, Text, View, Image } from "react-native";
-import { ORDERS } from "../../../../assets/orders";
+import { FlatList, StyleSheet, Text, View, Image, Animated } from "react-native";
+import { ORDERS } from "../../../assets/orders";
 
 const OrderDetails = () => {
   const { slug } = useLocalSearchParams();
@@ -29,7 +29,7 @@ const OrderDetails = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.orderItem}>
-            <Image source={item.heroImage} style={styles.heroImage} />
+            <Animated.Image source={item.heroImage} style={styles.heroImage} />
             <View style={styles.itemInfo}>
               <Text>{item.title}</Text>
               <Text style={styles.itemPrice}>Price: ${item.price}</Text>

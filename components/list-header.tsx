@@ -6,11 +6,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Animated,
 } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
-import { CATEGORIES } from "../../assets/categories";
+import { CATEGORIES } from "../assets/categories";
 
 import { useCartStore } from "../store/cart-store";
 
@@ -23,7 +24,7 @@ export const ListHeader = () => {
       <View style={styles.headerTop}>
         <View style={styles.headerLeft}>
           <View style={styles.avatarContainer}>
-            <Image source={{ uri: "" }} style={styles.avatarImage} />
+            <Animated.Image source={{ uri: "https://m.media-amazon.com/images/G/31/HFC/PREPAID_RECHARGE/AIRTEL_PRE.png" }} style={styles.avatarImage} />
             <Text style={styles.avatarText}>Hello, John</Text>
           </View>
         </View>
@@ -51,8 +52,8 @@ export const ListHeader = () => {
         </View>
       </View>
       <View style={styles.heroContainer}>
-        <Image
-          source={require("../../assets/images/hero.png")}
+        <Animated.Image
+          source={require("../assets/images/hero.png")}
           style={styles.heroImage}
         />
       </View>
@@ -63,7 +64,7 @@ export const ListHeader = () => {
           renderItem={({ item }) => (
             <Link asChild href={`/categories/${item.slug}`}>
               <Pressable style={styles.category}>
-                <Image
+                <Animated.Image
                   source={{ uri: item.imageUrl }}
                   style={styles.categoryImage}
                 />

@@ -7,9 +7,10 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  Animated,
 } from "react-native";
 import { useToast } from "react-native-toast-notifications";
-import { PRODUCTS } from "../../../assets/products";
+import { PRODUCTS } from "../../assets/products";
 import { useCartStore } from "../../store/cart-store";
 
 const ProductDetails = () => {
@@ -69,7 +70,7 @@ const ProductDetails = () => {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ title: product.title }} />
-      <Image source={product.heroImage} style={styles.heroImage} />
+      <Animated.Image source={product.heroImage} style={styles.heroImage} />
 
       <View style={{ padding: 16, flex: 1 }}>
         <Text style={styles.title}>Title: {product.title}</Text>
@@ -86,7 +87,7 @@ const ProductDetails = () => {
       <FlatList
         data={product.imagesUrl}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => <Image source={item} style={styles.image} />}
+        renderItem={({ item }) => <Animated.Image source={item} style={styles.image} />}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.imagesContainer}
